@@ -1,0 +1,20 @@
+<p>
+	<%= label_tag 'summary', nil, :class => 'field_label' %>
+	<%= simple_format(@todo.summary) %>
+</p>
+
+<% unless @todo.description.blank? %>
+<p>
+	<%= label_tag 'description', nil, :class => 'field_label' %>
+	<%= simple_format(@todo.description) %>
+</p>
+<% end %>
+
+<% unless @todo.completed_at.nil? %>
+<p>
+	<%= label_tag 'completed_at', nil, :class => 'field_label' %>
+	<%= @todo.completed_at %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', edit_todo_path(@todo) %> | <%= link_to 'Back', todos_path %>

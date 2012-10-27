@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Todo</title>
+		<%= stylesheet_link_tag 'application', :media => 'all' %>
+		<%= javascript_include_tag 'application' %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<% unless [current_user, notice, alert].all? { |value| value.nil? } %>
+		<div id="header">
+			<div id="notification">
+				<span id="notice"><%= notice %></span>
+				<span id="alert"><%= alert %></span>
+			</div>
+			<% if user_signed_in? %>
+			<div id="logged_in_user">
+				<span><%= current_user.email %></span> |
+				<%= link_to 'Edit', edit_user_registration_path %> |
+				<%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
+			</div>
+			<% end %>
+		<% end %>
+		</div>
+
+		<div id="content">
+			<%= yield %>
+		</div>
+
+	</body>
+</html>

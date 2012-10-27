@@ -1,0 +1,12 @@
+common: &common
+  adapter: mysql2
+  username: <username>
+  password: <password>
+
+development:
+  <<: *common
+  database: todo_development
+
+test:
+  <<: *common
+  database: todo_test

@@ -1,0 +1,5 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  summary: 'Todo #1 Summary'
+  description: 'Todo #1 Description'
