@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+input[type="text"], textarea {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 13px;
+}
+
 #header {
 	display: table;
 	height: 20px;
@@ -31,41 +36,66 @@
 	margin-top: 5px;
 }
 
-.data_table {
+.field_label {
+	font-weight: bold;
+}
+
+#user_email, #user_password, #user_password_confirmation, #user_current_password, .edit_todo input[type="text"], .edit_todo textarea, .new_todo input[type="text"], .new_todo textarea {
+	display: block;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.edit_todo input[type="text"], .edit_todo textarea, .new_todo input[type="text"], .new_todo textarea {
+	border: solid 1px #999;
+	width: 400px;
+}
+
+.edit_todo textarea, .new_todo textarea {
+	height: 100px;
+}
+
+.list_view {
 	border-bottom: solid 1px #999;
 	border-right: solid 1px #999;
 	margin-bottom: 10px;
 }
 
-.data_table tr {
-	&:nth-child(even) {
-		background-color: #EEE;
-	}
+.list_view tr:nth-child(even) {
+	background-color: #EEE;
 }
 
-.data_table td {
+.list_view td {
 	border-left: solid 1px #999;
 	border-top: solid 1px #999;
 	padding: 2px 5px;
 }
 
-.field_label {
-	font-weight: bold;
+.list_edit_view {
+	background-color: #FFFFCC;
+	border: solid 1px #BBB;
+	margin: 15px 0;
 }
 
-#user_email, #user_password, #user_password_confirmation, #user_current_password, #todo_summary, #todo_description {
-	display: block;
-	font-family: verdana, arial, helvetica, sans-serif;
-	font-size: 13px;
-	margin-bottom: 5px;
-	margin-top: 5px;
+.list_edit_view tr:not(:last-child) td {
+	border-bottom: solid 1px #6699FF;
 }
 
-#todo_summary, #todo_description {
-	border: solid 1px #999;
-	width: 400px;
-}
-
-#todo_description {
-	height: 100px;
+.list_edit_view td {
+	&:first-child {
+		text-align: center;
+		width: 50px;
+	}
+	&:nth-child(2) {
+		border-color: #FF0099;
+		border-style: solid;
+		border-width: 0px 1px;
+		width: 3px;
+	}
+	input[type="text"] {
+		border: 0;
+		background: none;
+		margin: 5px 10px;
+		width: 400px;
+	}
 }

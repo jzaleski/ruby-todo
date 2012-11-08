@@ -11,6 +11,25 @@ class TodosController < ApplicationController
 	end
 
 
+	# {GET,POST,PUT} /todos/edit_in_place(.json)
+	def edit_in_place
+		if request.post? || request.put?
+			todo_attributes = params[:todo]
+			todo_attributes[:completed_at] = DateTime.now.utc if todo_attributes.delete('completed') == '1'
+			if request.post?
+				Todo.create(todo_attributes.merge(:user => current_user))
+			else
+				Todo.find_by_id_and_user_id(todo_attributes[:id], current_user.id).update_attributes(todo_attributes)
+			end
+		end
+		@todos = Todo.where(:user_id => current_user.id, :completed_at => nil) + [Todo.new]
+		respond_to do |format|
+			format.html # index.html.erb
+			format.json { render json: @todos }
+		end
+	end
+
+
 	# GET /todos/1
 	# GET /todos/1.json
 	def show
@@ -48,7 +67,7 @@ class TodosController < ApplicationController
 				format.html { redirect_to @todo, notice: 'Todo was successfully created.' }
 				format.json { render json: @todo, status: :created, location: @todo }
 			else
-				format.html { render action: "new" }
+				format.html { render action: 'new' }
 				format.json { render json: @todo.errors, status: :unprocessable_entity }
 			end
 		end
@@ -64,7 +83,7 @@ class TodosController < ApplicationController
 				format.html { redirect_to @todo, notice: 'Todo was successfully updated.' }
 				format.json { head :no_content }
 			else
-				format.html { render action: "edit" }
+				format.html { render action: 'edit' }
 				format.json { render json: @todo.errors, status: :unprocessable_entity }
 			end
 		end
