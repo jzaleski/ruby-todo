@@ -1,0 +1,15 @@
+<h1>Listing Todos</h1>
+
+<table class="list_edit_view" cellpadding="0" cellspacing="0">
+<% @todos.each do |todo| %>
+	<%= form_for todo, :url => todos_edit_in_place_path do |f| %>
+	<tr>
+		<td><%= check_box 'todo', 'completed' %></td>
+		<td><%= f.hidden_field :id %></td>
+		<td><%= f.text_field :summary, :autocomplete => 'off' %></td>
+	</tr>
+	<% end %>
+<% end %>
+</table>
+
+<%= link_to 'Back', todos_path %>

@@ -16,11 +16,7 @@ class TodosController < ApplicationController
 		if request.post? || request.put?
 			todo_attributes = params[:todo]
 			todo_attributes[:completed_at] = DateTime.now.utc if todo_attributes.delete('completed') == '1'
-			if request.post?
-				Todo.create(todo_attributes.merge(:user => current_user))
-			else
-				Todo.find_by_id_and_user_id(todo_attributes[:id], current_user.id).update_attributes(todo_attributes)
-			end
+			Todo.find_or_initialize_by_id_and_user_id(todo_attributes[:id], current_user.id).update_attributes(todo_attributes)
 		end
 		@todos = Todo.where(:user_id => current_user.id, :completed_at => nil) + [Todo.new]
 		respond_to do |format|
