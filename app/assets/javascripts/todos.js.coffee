@@ -3,8 +3,6 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(->
-	# Stylize buttons
-	$('input[type="submit"]').button();
-	# Set focus to the input when it is present
-	$('#todo_summary').focus();
+	# Set focus to the first input when it is present
+	$('#todo_summary:eq(0), #user_email').focus();
 );

@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-input[type="text"], textarea {
+input[type="text"] {
 	font-family: verdana, arial, helvetica, sans-serif;
 	font-size: 13px;
 }
@@ -40,48 +40,23 @@ input[type="text"], textarea {
 	font-weight: bold;
 }
 
-#user_email, #user_password, #user_password_confirmation, #user_current_password, .edit_todo input[type="text"], .edit_todo textarea, .new_todo input[type="text"], .new_todo textarea {
+#user_email, #user_password, #user_password_confirmation, #user_current_password {
 	display: block;
 	margin-bottom: 5px;
 	margin-top: 5px;
 }
 
-.edit_todo input[type="text"], .edit_todo textarea, .new_todo input[type="text"], .new_todo textarea {
-	border: solid 1px #999;
-	width: 400px;
-}
-
-.edit_todo textarea, .new_todo textarea {
-	height: 100px;
-}
-
 .list_view {
-	border-bottom: solid 1px #999;
-	border-right: solid 1px #999;
-	margin-bottom: 10px;
-}
-
-.list_view tr:nth-child(even) {
-	background-color: #EEE;
-}
-
-.list_view td {
-	border-left: solid 1px #999;
-	border-top: solid 1px #999;
-	padding: 2px 5px;
-}
-
-.list_edit_view {
 	background-color: #FFFFCC;
 	border: solid 1px #BBB;
 	margin: 15px 0;
 }
 
-.list_edit_view tr:not(:last-child) td {
+.list_view tr:not(:last-child) td {
 	border-bottom: solid 1px #6699FF;
 }
 
-.list_edit_view td {
+.list_view td {
 	&:first-child {
 		text-align: center;
 		width: 50px;
@@ -93,8 +68,8 @@ input[type="text"], textarea {
 		width: 3px;
 	}
 	input[type="text"] {
-		border: 0;
 		background: none;
+		border: 0;
 		margin: 5px 10px;
 		width: 400px;
 	}

@@ -18,49 +18,18 @@ class TodosControllerTest < ActionController::TestCase
 	end
 
 
-	test 'should get new' do
-		get :new
-		assert_response :success
+	test 'create' do
+		raise 'CREATE'
 	end
 
 
-	test 'should create todo' do
-		assert_difference('Todo.count') do
-			post :create, todo: { summary: @todo.summary, description: @todo.description }
-		end
-		assert_redirected_to todo_path(assigns(:todo))
+	test 'update' do
+		raise 'UPDATE'
 	end
 
 
-	test 'should show todo' do
-		get :show, id: @todo
-		assert_response :success
-	end
-
-
-	test 'should get edit' do
-		get :edit, id: @todo
-		assert_response :success
-	end
-
-
-	test 'should update todo' do
-		put :update, id: @todo, todo: { summary: @todo.summary, description: @todo.description }
-		assert_redirected_to todo_path(assigns(:todo))
-	end
-
-
-	test 'should destroy todo' do
-		assert_difference('Todo.count', -1) do
-			delete :destroy, id: @todo
-		end
-		assert_redirected_to todos_path
-	end
-
-
-	test 'should mark todo completed' do
-		post :mark_completed, id: @todo
-		assert_redirected_to todos_path
+	test 'destroy' do
+		raise 'DESTROY'
 	end
 
 end

@@ -1,20 +1,13 @@
-<h1>Listing Todos</h1>
+<h1>Todos</h1>
 
-<% unless @todos.empty? %>
 <table class="list_view" cellpadding="0" cellspacing="0">
-	<% @todos.each do |todo| %>
+<% @todos.each do |todo| %>
+	<%= form_for todo, :format => :json, :remote => true do |f| %>
 	<tr>
-		<td><%= todo.summary %></td>
-		<td>
-			<%= link_to 'Show', todo_path(todo) %> |
-			<%= link_to 'Edit', edit_todo_path(todo) %> |
-			<%= link_to 'Done', mark_completed_todo_path(todo), method: :post, data: { confirm: 'Are you sure?' } %> |
-			<%= link_to 'Delete', todo, method: :delete, data: { confirm: 'Are you sure?' } %>
-		</td>
+		<td><%= check_box 'todo', 'completed' %></td>
+		<td></td>
+		<td><%= f.text_field :summary, :autocomplete => 'off' %></td>
 	</tr>
 	<% end %>
-</table>
 <% end %>
-
-<%= link_to 'Create new', new_todo_path %> |
-<%= link_to 'Edit in-place', todos_edit_in_place_path %>
+</table>
