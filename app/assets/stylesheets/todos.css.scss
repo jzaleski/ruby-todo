@@ -2,35 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#notification, #logged_in_user {
-	display: table-cell;
-}
-
-#logged_in_user {
-	padding-right: 10px;
-	text-align: right;
-}
-
-#sign_up, #reset_password {
-	margin-bottom: 10px;
-	margin-top: 5px;
-}
-
-#sign_in {
-	margin-bottom: 10px;
-	margin-top: 10px;
-}
-
-#update_account {
-	margin-top: 5px;
-}
-
-#user_email, #user_password, #user_password_confirmation, #user_current_password {
-	display: block;
-	margin-bottom: 5px;
-	margin-top: 5px;
-}
-
 .list {
 	background-color: #FFFFCC;
 	border: solid 1px #BABABA;
@@ -61,6 +32,36 @@
 		background: none;
 		border: 0;
 		margin: 5px 10px;
+		outline: none;
 		width: 400px;
 	}
+}
+
+#logged_in_user, #notification {
+	display: table-cell;
+}
+
+#logged_in_user {
+	padding-right: 10px;
+	text-align: right;
+}
+
+#reset_password, #sign_up {
+	margin-bottom: 10px;
+	margin-top: 5px;
+}
+
+#sign_in {
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+#update_account {
+	margin-top: 5px;
+}
+
+#user_current_password, #user_email, #user_password, #user_password_confirmation {
+	display: block;
+	margin-bottom: 5px;
+	margin-top: 5px;
 }

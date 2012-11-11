@@ -1,18 +1,7 @@
-body, p, ol, ul, td, input[type="text"] {
+body, input[type="text"], ol, p, td, ul {
 	font-family: verdana, arial, helvetica, sans-serif;
 	font-size: 13px;
 	line-height: 18px;
-}
-
-body {
-	background-color: #FFF;
-	color: #333;
-}
-
-pre {
-	background-color: #EEE;
-	font-size: 11px;
-	padding: 10px;
 }
 
 a {
@@ -23,24 +12,21 @@ a {
 	}
 }
 
+body {
+	background-color: #FFF;
+	color: #333;
+}
+
 div {
 	&.field, &.actions {
 		margin-bottom: 10px;
 	}
 }
 
-#header {
-	display: table;
-	height: 20px;
-	width: 100%;
-}
-
-#alert {
-	color: #FF0000;
-}
-
-#notice {
-	color: #336633;
+pre {
+	background-color: #EEE;
+	font-size: 11px;
+	padding: 10px;
 }
 
 .field_label {
@@ -51,6 +37,11 @@ div {
 	padding: 2px;
 	background-color: #FF0000;
 	display: table;
+}
+
+
+#alert {
+	color: #FF0000;
 }
 
 #error_explanation {
@@ -74,4 +65,14 @@ div {
 		font-size: 12px;
 		list-style: square;
 	}
+}
+
+#header {
+	display: table;
+	height: 20px;
+	width: 100%;
+}
+
+#notice {
+	color: #336633;
 }
