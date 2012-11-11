@@ -2,17 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-input[type="text"] {
-	font-family: verdana, arial, helvetica, sans-serif;
-	font-size: 13px;
-}
-
-#header {
-	display: table;
-	height: 20px;
-	width: 100%;
-}
-
 #notification, #logged_in_user {
 	display: table-cell;
 }
@@ -36,27 +25,28 @@ input[type="text"] {
 	margin-top: 5px;
 }
 
-.field_label {
-	font-weight: bold;
-}
-
 #user_email, #user_password, #user_password_confirmation, #user_current_password {
 	display: block;
 	margin-bottom: 5px;
 	margin-top: 5px;
 }
 
-.list_view {
+.list {
 	background-color: #FFFFCC;
-	border: solid 1px #BBB;
+	border: solid 1px #BABABA;
 	margin: 15px 0;
 }
 
-.list_view tr:not(:last-child) td {
-	border-bottom: solid 1px #6699FF;
+.list tr {
+	&:hover {
+		background-color: #FAFAFA;
+	}
+	&:not(:last-child) td {
+		border-bottom: solid 1px #6699FF;
+	}
 }
 
-.list_view td {
+.list td {
 	&:first-child {
 		text-align: center;
 		width: 50px;

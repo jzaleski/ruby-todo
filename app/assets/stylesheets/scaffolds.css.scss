@@ -1,21 +1,18 @@
+body, p, ol, ul, td, input[type="text"] {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 13px;
+	line-height: 18px;
+}
+
 body {
 	background-color: #FFF;
 	color: #333;
-	font-family: verdana, arial, helvetica, sans-serif;
-	font-size: 13px;
-	line-height: 18px;
-}
-
-p, ol, ul, td {
-	font-family: verdana, arial, helvetica, sans-serif;
-	font-size: 13px;
-	line-height: 18px;
 }
 
 pre {
-	background-color: #eee;
-	padding: 10px;
+	background-color: #EEE;
 	font-size: 11px;
+	padding: 10px;
 }
 
 a {
@@ -32,12 +29,22 @@ div {
 	}
 }
 
+#header {
+	display: table;
+	height: 20px;
+	width: 100%;
+}
+
 #alert {
 	color: #FF0000;
 }
 
 #notice {
-	color: #009900;
+	color: #336633;
+}
+
+.field_label {
+	font-weight: bold;
 }
 
 .field_with_errors {
@@ -47,21 +54,21 @@ div {
 }
 
 #error_explanation {
-	width: 450px;
+	background-color: #F0F0F0;
 	border: 2px solid #FF0000;
+	margin-bottom: 20px;
 	padding: 7px;
 	padding-bottom: 0;
-	margin-bottom: 20px;
-	background-color: #F0F0F0;
+	width: 450px;
 	h2 {
-		text-align: left;
-		font-weight: bold;
-		padding: 5px 5px 5px 15px;
-		font-size: 12px;
-		margin: -7px;
-		margin-bottom: 0;
 		background-color: #C00;
 		color: #FFF;
+		font-size: 12px;
+		font-weight: bold;
+		margin: -7px;
+		margin-bottom: 0;
+		padding: 5px 5px 5px 15px;
+		text-align: left;
 	}
 	ul li {
 		font-size: 12px;

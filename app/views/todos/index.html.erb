@@ -1,12 +1,12 @@
 <h1>Todos</h1>
 
-<table class="list_view" cellpadding="0" cellspacing="0">
+<table class="list" cellpadding="0" cellspacing="0">
 <% @todos.each do |todo| %>
-	<%= form_for todo, :format => :json, :remote => true do |f| %>
+	<%= form_for todo do |form| %>
 	<tr>
-		<td><%= check_box 'todo', 'completed' %></td>
+		<td><%= check_box 'todo', 'completed', { :disabled => todo.new_record?, :onchange => 'this.form.submit();' } %></td>
 		<td></td>
-		<td><%= f.text_field :summary, :autocomplete => 'off' %></td>
+		<td><%= form.text_field :summary, :autocomplete => 'off' %></td>
 	</tr>
 	<% end %>
 <% end %>

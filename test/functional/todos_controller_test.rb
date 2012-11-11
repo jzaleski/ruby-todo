@@ -11,7 +11,7 @@ class TodosControllerTest < ActionController::TestCase
 	end
 
 
-	test 'should get index' do
+	test 'index' do
 		get :index
 		assert_response :success
 		assert_not_nil assigns(:todos)
@@ -19,17 +19,24 @@ class TodosControllerTest < ActionController::TestCase
 
 
 	test 'create' do
-		raise 'CREATE'
+		assert_difference('Todo.count') do
+			post :create, :todo => { :summary => @todo.summary }
+		end
+		assert_redirected_to todos_path
 	end
 
 
 	test 'update' do
-		raise 'UPDATE'
+		put :update, :id => @todo.id, :todo => { :summary => "Updated #{@todo.summary}" }
+		assert_redirected_to todos_path
 	end
 
 
 	test 'destroy' do
-		raise 'DESTROY'
+		assert_difference('Todo.count', -1) do
+			delete :destroy, :id => @todo.id
+		end
+		assert_redirected_to todos_path
 	end
 
 end
