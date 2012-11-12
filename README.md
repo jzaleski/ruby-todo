@@ -1,7 +1,7 @@
 todo
 ====
 
-A very simple To-do application complete w/ authentication
+A very simple To-do application w/ authentication
 
 Configuration:
 
@@ -12,7 +12,7 @@ Configuration:
 - gem install bundler
 - bundle install
 - cp config/database.yml{.example,}
-- modify config/database.yml to match your local MySQL settings
+- modify config/database.yml to match your local data-store settings (example file is for configured for "PostgreSQL")
 - rake db:create
 - rake db:migrate
 - rake db:test:clone
