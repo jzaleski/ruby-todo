@@ -2,10 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.container {
+	background-color: #FCFCFC;
+	border-bottom-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border: solid 1px #555;
+	padding: 10px;
+	width: 450px;
+}
+
 .list {
 	background-color: #FFFFCC;
 	border: solid 1px #BABABA;
-	margin: 15px 0;
+	margin: 0;
 }
 
 .list tr {
@@ -25,7 +35,7 @@
 	&:nth-child(2) {
 		border-color: #FF0099;
 		border-style: solid;
-		border-width: 0px 1px;
+		border-width: 0 1px;
 		width: 3px;
 	}
 	input[type="text"] {
@@ -35,6 +45,32 @@
 		outline: none;
 		width: 400px;
 	}
+}
+
+.tabs {
+	left: -40px;
+	list-style: none;
+	margin-top: 1px;
+	position: relative;
+	top: -2px;
+	z-index: 2;
+}
+
+.tabs li {
+	float: left;
+	&:nth-child(2) {
+		padding-left: 2px;
+	}
+}
+
+.tabs a {
+	background-color: #FCFCFC;
+	border-bottom: solid 1px #555;
+	border-left: solid 1px #555;
+	border-right: solid 1px #555;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 
 #logged_in_user, #notification {

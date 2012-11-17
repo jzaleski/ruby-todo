@@ -6,7 +6,11 @@ class TodosController < ApplicationController
 	# GET /todos
 	# GET /todos.json
 	def index
-		@todos = Todo.where(:user_id => current_user.id, :completed_at => nil).order(:created_at) + [Todo.new]
+		if @view_completed = params[:view] == 'completed'
+			@todos = Todo.where('user_id = ? and completed_at is not null', current_user.id).order(:created_at)
+		else
+			@todos = Todo.where('user_id = ? and completed_at is null', current_user.id).order(:created_at) + [Todo.new]
+		end
 		respond_to do |format|
 			format.html # index.html.erb
 			format.json { render json: @todos }
