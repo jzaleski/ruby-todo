@@ -15,7 +15,7 @@ class TodosControllerTest < ActionController::TestCase
 		get :index
 		assert_response :success
 		assert_not_nil assigns(:todos)
-		assert_select '.list tr', 2
+		assert_select '.lines tr', 2
 	end
 
 
@@ -24,7 +24,7 @@ class TodosControllerTest < ActionController::TestCase
 		get :index, { :view => 'completed' }
 		assert_response :success
 		assert_not_nil assigns(:todos)
-		assert_select '.list tr', 1
+		assert_select '.lines tr', 1
 	end
 
 
