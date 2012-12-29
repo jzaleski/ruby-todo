@@ -4,5 +4,5 @@
 
 $(->
 	# Set focus to the first input when it is present
-	$('#todo_summary:eq(0), #user_email').focus();
+	$('#todo_summary:eq(0)').focus()
 );

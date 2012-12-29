@@ -7,9 +7,9 @@ class TodosController < ApplicationController
 	# GET /todos.json
 	def index
 		if @view_completed = params[:view] == 'completed'
-			@todos = Todo.where('user_id = ? and completed_at is not null', current_user.id).order(:created_at)
+			@todos = Todo.where('user_id = ? and completed_at is not null', @current_user.id).order(:created_at)
 		else
-			@todos = Todo.where('user_id = ? and completed_at is null', current_user.id).order(:created_at) + [Todo.new]
+			@todos = Todo.where('user_id = ? and completed_at is null', @current_user.id).order(:created_at) + [Todo.new]
 		end
 		respond_to do |format|
 			format.html # index.html.erb
@@ -57,7 +57,7 @@ class TodosController < ApplicationController
 		todo_id = params[:id]
 		todo_param = params[:todo] || {}
 		todo_param[:completed_at] = Time.now.utc if todo_param.delete('completed') == '1'
-		@todo = Todo.find_by_id_and_user_id(todo_id, current_user.id) || Todo.new(:user => current_user)
+		@todo = Todo.find_by_id_and_user_id(todo_id, @current_user.id) || Todo.new(:user => @current_user)
 		@todo.assign_attributes(todo_param)
 	end
 

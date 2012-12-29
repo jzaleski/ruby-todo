@@ -2,11 +2,7 @@ require 'test_helper'
 
 class TodosControllerTest < ActionController::TestCase
 
-	include Devise::TestHelpers
-
-
 	setup do
-		@user = sign_in users(:one)
 		@todo = todos(:one)
 	end
 
@@ -31,7 +27,7 @@ class TodosControllerTest < ActionController::TestCase
 	test 'create' do
 		summary = @todo.summary
 		assert_difference('Todo.count') do
-			post :create, :todo => { :summary => summary }
+			post :create, :todo => {:summary => summary}
 		end
 		assert_redirected_to todos_path
 		assert_equal summary, Todo.last.summary
@@ -40,7 +36,7 @@ class TodosControllerTest < ActionController::TestCase
 
 	test 'update' do
 		updated_summary = "Updated #{@todo.summary}"
-		put :update, :id => @todo.id, :todo => { :summary => updated_summary }
+		put :update, :id => @todo.id, :todo => {:summary => updated_summary}
 		assert_redirected_to todos_path
 		assert_equal updated_summary, Todo.last.summary
 	end

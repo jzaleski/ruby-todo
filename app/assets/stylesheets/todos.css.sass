@@ -1,0 +1,44 @@
+.notepad
+	margin: 0px 10px
+	& .binding
+		background-color: #630
+		border-color: #777
+		border-style: solid
+		border-width: 1px 1px 0 1px
+		color: #FFF
+		font-weight: bold
+		padding: 3px 0
+		text-align: center
+	& .lines
+		background-color: #FFC
+		border: solid 1px #777
+		width: 100%
+		& tr
+			&:hover
+				background-color: #FAFAFA
+			&:not(:last-child) td
+				border-bottom: solid 1px #69F
+			& td
+				&:first-child
+					text-align: center
+					width: 40px
+				&:nth-child(2)
+					border-left: solid 1px #F09
+					border-right: solid 1px #F09
+					width: 3px
+				&:nth-child(3)
+					padding: 5px 10px
+				& input[type="text"]
+					background: none
+					border: none
+					outline: none
+					width: 100%
+	& .status
+		background-color: #EEE
+		border-color: #999
+		border-style: solid
+		border-width: 0 1px 1px 1px
+		margin-left: 10px
+		margin-right: 10px
+		padding: 2px 0 2px 0
+		text-align: center
