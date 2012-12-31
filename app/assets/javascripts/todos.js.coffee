@@ -3,6 +3,11 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(->
-	# Set focus to the first input when it is present
+	# Set focus to the first input
 	$('#todo_summary:eq(0)').focus()
-);
+	# Ensure that links open in the same window
+	$(document).on('click', 'a', (event) ->
+		event.preventDefault()
+		location.href = $(event.target).attr('href')
+	)
+)
