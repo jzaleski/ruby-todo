@@ -1,24 +1,26 @@
 .notepad
 	margin: 0px 10px
-	& .binding
+	padding-top: 5px
+	.binding
 		background-color: #630
 		border-color: #777
 		border-style: solid
 		border-width: 1px 1px 0 1px
 		color: #FFF
+		font-size: 20px
 		font-weight: bold
-		padding: 3px 0
+		padding: 7px 0
 		text-align: center
-	& .lines
+	.lines
 		background-color: #FFC
 		border: solid 1px #777
 		width: 100%
-		& tr
+		tr
 			&:hover
 				background-color: #FAFAFA
 			&:not(:last-child) td
 				border-bottom: solid 1px #69F
-			& td
+			td
 				&:first-child
 					text-align: center
 					width: 40px
@@ -28,17 +30,27 @@
 					width: 3px
 				&:nth-child(3)
 					padding: 5px 10px
-				& input[type="text"]
+				input[type="text"]
 					background: none
 					border: none
 					outline: none
 					width: 100%
-	& .status
+	.status
 		background-color: #EEE
-		border-color: #999
-		border-style: solid
-		border-width: 0 1px 1px 1px
-		margin-left: 10px
-		margin-right: 10px
-		padding: 2px 0 2px 0
+		border: solid 1px #999
+		border-top-width: 0
+		margin: 0 10px
+		padding: 5px 0 8px 0
 		text-align: center
+		.selected
+			font-weight: bold
+
+
+@media screen and (max-width: 640px)
+	#content
+		min-width: 320px
+		.notepad
+			margin: 0
+			padding: 0
+			.status
+				margin: 0 5px
