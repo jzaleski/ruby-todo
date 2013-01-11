@@ -4,7 +4,7 @@
 
 $(->
 	# Set focus to the first text input
-	$('input[type="text"]:eq(0)').focus()
+	$('input[type="text"]:last').focus()
 	# Ensure that links open in the same window
 	$(document).on('click', 'a', (event) ->
 		event.preventDefault()
