@@ -5,6 +5,11 @@
 $(->
 	# Set focus to the first text input
 	$('input[type="text"]:last').focus()
+	# disable form submit unless a "summary" is specified
+	$('form').submit(->
+		if(!$('#todo_summary', $(this).next()).val())
+			return false
+	)
 	# Ensure that links open in the same window
 	$(document).on('click', 'a', (event) ->
 		event.preventDefault()
