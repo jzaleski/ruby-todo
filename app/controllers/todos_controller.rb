@@ -7,9 +7,9 @@ class TodosController < ApplicationController
 	# GET /todos.json
 	def index
 		if @view_completed = params[:view] == 'completed'
-			@todos = Todo.where('list_id = ? and completed_at is not null', @current_list.id).order(:created_at)
+			@todos = Todo.where('list_id = ? and completed_at is not null', @list.id).order(:created_at)
 		else
-			@todos = Todo.where('list_id = ? and completed_at is null', @current_list.id).order(:created_at) + [Todo.new]
+			@todos = Todo.where('list_id = ? and completed_at is null', @list.id).order(:created_at) + [Todo.new(:created_by_user => @user, :list => @list)]
 		end
 		respond_to do |format|
 			format.html # index.html.erb
@@ -43,11 +43,14 @@ class TodosController < ApplicationController
 	private
 
 	def parse_request
-		list_id = params[:current_list][:id] rescue nil
-		todo_id = params[:id]
 		todo_param = params[:todo] || {}
+		todo_id = params[:id]
+		@todo = todo_id.present? ? Todo.find(todo_id) : Todo.new
+		created_by_user_id = todo_param.delete('created_by_user_id')
+		@todo.created_by_user ||= User.find(created_by_user_id)
+		list_id = todo_param.delete('list_id')
+		@todo.list ||= List.find(list_id)
 		todo_param[:completed_at] = Time.now.utc if todo_param.delete('completed') == '1'
-		@todo = todo_id.present? ? Todo.find(todo_id) : Todo.new(:created_by_user => @current_user, :list => List.find(list_id))
 		@todo.assign_attributes(todo_param)
 	end
 
