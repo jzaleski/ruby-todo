@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
-	has_many :todos, :dependent => :destroy
+	has_and_belongs_to_many :lists
 	attr_accessible :email
 end
