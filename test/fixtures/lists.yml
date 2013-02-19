@@ -2,6 +2,4 @@
 
 one:
   id: 1
-  created_by_user_id: 1
-  list_id: 1
-  summary: 'Todo #1 Summary'
+  name: "test@test.com's list"

@@ -5,7 +5,7 @@
 			= form_for todo do |form|
 				%tr
 					%td=check_box 'todo', 'completed', {:disabled => todo.new_record? || todo.completed_at, :onchange => 'this.form.submit();'}
-					%td
+					%td=hidden_field :current_list, :id
 					%td=form.text_field :summary, {:autocomplete => 'off', :readonly => todo.completed_at}
 	.status
 		=link_to 'Active', todos_path(:view => 'active'), :class => @view_completed ? '' : 'selected'

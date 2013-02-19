@@ -25,11 +25,13 @@ class TodosControllerTest < ActionController::TestCase
 
 
 	test 'create' do
+		list_id = @todo.list_id
 		summary = @todo.summary
 		assert_difference('Todo.count') do
-			post :create, :todo => {:summary => summary}
+			post :create, :current_list => {:id => list_id}, :todo => {:summary => summary}
 		end
 		assert_redirected_to todos_path
+		assert_equal list_id, Todo.last.list_id
 		assert_equal summary, Todo.last.summary
 	end
 
