@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130219021850) do
+ActiveRecord::Schema.define(:version => 20130219023406) do
 
   create_table "lists", :force => true do |t|
     t.integer  "created_by_user_id"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20130219021850) do
     t.datetime "updated_at",                 :null => false
   end
 
+  add_index "users", ["email"], :name => "email", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end
