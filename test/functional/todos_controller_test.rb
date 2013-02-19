@@ -43,12 +43,4 @@ class TodosControllerTest < ActionController::TestCase
 		assert_equal updated_summary, Todo.last.summary
 	end
 
-
-	test 'destroy' do
-		assert_difference('Todo.count', -1) do
-			delete :destroy, :id => @todo.id
-		end
-		assert_redirected_to todos_path
-	end
-
 end

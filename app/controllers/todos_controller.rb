@@ -40,17 +40,6 @@ class TodosController < ApplicationController
 	end
 
 
-	# DELETE /todos/1
-	# DELETE /todos/1.json
-	def destroy
-		@todo.destroy
-		respond_to do |format|
-			format.html { redirect_to todos_path }
-			format.json { head :no_content }
-		end
-	end
-
-
 	private
 
 	def parse_request
