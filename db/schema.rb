@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130219023406) do
+ActiveRecord::Schema.define(:version => 20130220030753) do
 
   create_table "lists", :force => true do |t|
     t.integer  "created_by_user_id"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20130219023406) do
     t.string   "email",      :default => "", :null => false
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
+    t.string   "password"
   end
 
   add_index "users", ["email"], :name => "email", :unique => true

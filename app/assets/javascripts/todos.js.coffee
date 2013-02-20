@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(->
-	# Set focus to the first text input
+	# Set focus to the last text input
 	$('input[type="text"]:last').focus()
 	# disable form submit unless a "summary" is specified
 	$('form').submit(->
