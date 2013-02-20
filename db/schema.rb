@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130220030753) do
+ActiveRecord::Schema.define(:version => 20130220125242) do
 
   create_table "lists", :force => true do |t|
     t.integer  "created_by_user_id"
@@ -38,10 +38,9 @@ ActiveRecord::Schema.define(:version => 20130220030753) do
     t.string   "email",      :default => "", :null => false
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
-    t.string   "password"
+    t.string   "password",                   :null => false
   end
 
-  add_index "users", ["email"], :name => "email", :unique => true
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["email", "password"], :name => "email_and_password"
 
 end
