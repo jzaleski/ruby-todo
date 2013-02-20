@@ -18,7 +18,11 @@ class ApplicationController < ActionController::Base
 			list.save!
 		end
 		# XXX: changing list selection isn't supported yet default to the first list
-		@list = @user.lists.first
+		if Rails.env.test?
+			@list = list
+		else
+			@list = @user.lists.first
+		end
 	end
 
 end

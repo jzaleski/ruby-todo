@@ -1,20 +1,24 @@
-$form_width: 280px
-
 .form_wrapper
-	margin: auto
-	margin-top: 15px
-	width: $form_width
-	input
-		&[type="password"], &[type="text"]
-			display: block
-			margin: 5px 0 10px 0
-			width: $form_width
-		&[type="submit"]
-			margin-top: 10px
-	label, .error
-		font-weight: bold
+	margin-top: 10px
+	form
+		table
+			margin: 0 auto
+			tr
+				td
+					text-align: right
+					input
+						&[type="password"], &[type="text"]
+							margin: 5px 0 10px 0
+							width: 225px
+						&[type="submit"]
+							height: 30px
+							width: 100%
+							margin-top: 5px
+					label
+						font-weight: bold
+						text-align: right
 	.error
 		color: #F00
 		font-style: italic
-		padding-bottom: 20px
+		padding-bottom: 10px
 		text-align: center
