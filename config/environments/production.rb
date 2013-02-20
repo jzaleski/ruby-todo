@@ -46,7 +46,10 @@ TodoApp::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  # config.assets.precompile += %w( search.js )
+  assets = Dir[Rails.root.join('app', 'assets', '{javascripts,stylesheets}', '**', '[^_]*.{js,css}*')]
+  assets.map! {|file| file.sub(%r(#{Rails.root}/app/assets/(javascripts|stylesheets)/), '')}
+  assets.map! {|file| file.sub(%r(\.(coffee|sass|scss)), '')}
+  config.assets.precompile += assets
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
