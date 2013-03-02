@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 	protected
 
 	def ensure_authenticated
-		redirect_to '/login' unless user
+		redirect_to '/login' unless session[:user_id]
 	end
 
 
@@ -19,9 +19,9 @@ class ApplicationController < ActionController::Base
 	def list
 		list_id = params.delete(:list_id) if params[:list_id]
 		list_id ||= session[:list_id]
-		@list = List.find(list_id)
-		if @list.nil?
-			@list = List.new("#{user.email}'s list")
+		@list = List.find(list_id) if list_id
+		@list ||= List.find_or_initialize_by_name("#{user.email}'s list")
+		if @list.new_record?
 			@list.created_by_user = user
 			@list.users << user
 			@list.save!
