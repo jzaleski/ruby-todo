@@ -1,6 +1,6 @@
 .notepad
 	.binding
-		='TODO'
+		=@list.name
 		-if prev_list
 			%a{:class => 'prev', :href => todos_path(:list_id => prev_list.id)}='<'
 		-if next_list
