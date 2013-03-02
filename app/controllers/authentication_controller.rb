@@ -6,7 +6,7 @@ class AuthenticationController < ApplicationController
 				'LOWER(email) = ? AND password = ?',
 				params[:email].downcase,
 				Digest::SHA1.hexdigest(params[:password])
-			)
+			).first
 			if user
 				session[:user_id] = user.id
 				return redirect_to todos_path
