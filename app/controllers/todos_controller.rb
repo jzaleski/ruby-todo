@@ -12,7 +12,7 @@ class TodosController < ApplicationController
 			@todos = Todo.where('list_id = ? and completed_at is null', list.id).order(:created_at) + [Todo.new(:created_by_user => user, :list => list)]
 		end
 		respond_to do |format|
-			format.html # index.html.erb
+			format.html
 			format.json { render json: @todos }
 		end
 	end
@@ -46,10 +46,8 @@ class TodosController < ApplicationController
 		todo_param = params[:todo] || {}
 		todo_id = params[:id]
 		@todo = todo_id.present? ? Todo.find(todo_id) : Todo.new
-		created_by_user_id = todo_param.delete('created_by_user_id')
-		@todo.created_by_user ||= User.find(created_by_user_id)
-		list_id = todo_param.delete('list_id')
-		@todo.list ||= List.find(list_id)
+		@todo.created_by_user ||= user
+		@todo.list ||= list
 		todo_param[:completed_at] = Time.now.utc if todo_param.delete('completed') == '1'
 		@todo.assign_attributes(todo_param)
 	end

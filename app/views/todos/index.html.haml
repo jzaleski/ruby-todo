@@ -7,12 +7,10 @@
 			%a{:class => 'next', :href => todos_path(:list_id => next_list.id)}='>'
 	%table.lines{:cellpadding => '0', :cellspacing => '0'}
 		- @todos.each do |todo|
-			= form_for todo do |form|
+			=form_for todo do |form|
 				%tr
 					%td=check_box 'todo', 'completed', {:disabled => todo.new_record? || todo.completed_at, :onchange => 'this.form.submit();'}
 					%td
-						=form.hidden_field :created_by_user_id
-						=form.hidden_field :list_id
 					%td=form.text_field :summary, {:autocomplete => 'off', :readonly => todo.completed_at}
 	.status
 		=link_to 'Active', todos_path(:view => 'active'), :class => @view_completed ? '' : 'selected'
