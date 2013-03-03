@@ -5,3 +5,10 @@ one:
   created_by_user_id: 1
   list_id: 1
   summary: 'Todo #1 Summary'
+
+two:
+  id: 2
+  created_by_user_id: 1
+  list_id: 1
+  summary: 'Todo #2 Summary'
+  completed_at: <%= Time.now.utc %>

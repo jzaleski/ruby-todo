@@ -4,11 +4,18 @@ class TodosControllerTest < ActionController::TestCase
 
 	setup do
 		@todo = todos(:one)
+		@session = {:user_id => users(:one).id, :list_id => lists(:one).id}
+	end
+
+
+	test 'index (unauthorized)' do
+		get :index
+		assert_redirected_to :controller => :authentication, :action => :login
 	end
 
 
 	test 'index (default)' do
-		get :index
+		get :index, nil, @session
 		assert_response :success
 		assert_not_nil assigns(:todos)
 		assert_select '.lines tr', 2
@@ -16,8 +23,7 @@ class TodosControllerTest < ActionController::TestCase
 
 
 	test 'index (completed)' do
-		@todo.update_attributes(:completed_at => Time.now.utc)
-		get :index, :view => 'completed'
+		get :index, {:view => 'completed'}, @session
 		assert_response :success
 		assert_not_nil assigns(:todos)
 		assert_select '.lines tr', 1
@@ -29,7 +35,7 @@ class TodosControllerTest < ActionController::TestCase
 		list_id = @todo.list_id
 		summary = @todo.summary
 		assert_difference('Todo.count') do
-			post :create, :todo => {:created_by_user_id => created_by_user_id, :list_id => list_id, :summary => summary}
+			post :create, {:todo => {:summary => summary}}, @session
 		end
 		assert_redirected_to todos_path
 		assert_equal created_by_user_id, Todo.last.created_by_user_id
@@ -40,9 +46,9 @@ class TodosControllerTest < ActionController::TestCase
 
 	test 'update' do
 		updated_summary = "Updated #{@todo.summary}"
-		put :update, :id => @todo.id, :todo => {:summary => updated_summary}
+		put :update, {:id => @todo.id, :todo => {:summary => updated_summary}}, @session
 		assert_redirected_to todos_path
-		assert_equal updated_summary, Todo.last.summary
+		assert_equal updated_summary, Todo.find(@todo.id).summary
 	end
 
 end

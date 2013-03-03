@@ -9,7 +9,7 @@ class TodosController < ApplicationController
 		if @view_completed = params[:view] == 'completed'
 			@todos = Todo.where('list_id = ? and completed_at is not null', list.id).order(:created_at)
 		else
-			@todos = Todo.where('list_id = ? and completed_at is null', list.id).order(:created_at) + [Todo.new(:created_by_user => user, :list => list)]
+			@todos = Todo.where('list_id = ? and completed_at is null', list.id).order(:created_at) + [Todo.new]
 		end
 		respond_to do |format|
 			format.html
