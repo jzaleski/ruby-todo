@@ -7,7 +7,7 @@
 		%tr
 			%td
 			%td
-			%td{:class => 'list_name'}=@list.name
+			%td=text_field :list, :name, {:disabled => true, :value => @list.name}
 		- @todos.each do |todo|
 			=form_for todo do |form|
 				%tr
