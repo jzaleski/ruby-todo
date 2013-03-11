@@ -48,7 +48,10 @@ class TodosController < ApplicationController
 		@todo = todo_id.present? ? Todo.find(todo_id) : Todo.new
 		@todo.created_by_user ||= user
 		@todo.list ||= list
-		todo_param[:completed_at] = Time.now.utc if todo_param.delete('completed') == '1'
+		if todo_param.delete('completed') == '1'
+			@todo.completed_at = Time.now.utc
+			@todo.completed_by_user = user
+		end
 		@todo.assign_attributes(todo_param)
 	end
 

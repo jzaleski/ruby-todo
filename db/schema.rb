@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130220125242) do
+ActiveRecord::Schema.define(:version => 20130311123940) do
 
   create_table "lists", :force => true do |t|
     t.integer  "created_by_user_id"
@@ -27,11 +27,12 @@ ActiveRecord::Schema.define(:version => 20130220125242) do
 
   create_table "todos", :force => true do |t|
     t.integer  "created_by_user_id"
-    t.string   "summary",            :null => false
+    t.string   "summary",              :null => false
     t.datetime "completed_at"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
     t.integer  "list_id"
+    t.integer  "completed_by_user_id"
   end
 
   create_table "users", :force => true do |t|

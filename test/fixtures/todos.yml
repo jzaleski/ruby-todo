@@ -12,3 +12,4 @@ two:
   list_id: 1
   summary: 'Todo #2 Summary'
   completed_at: <%= Time.now.utc %>
+  completed_by_user_id: 1
