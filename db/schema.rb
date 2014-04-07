@@ -43,5 +43,6 @@ ActiveRecord::Schema.define(:version => 20130311123940) do
   end
 
   add_index "users", ["email", "password"], :name => "email_and_password"
+  add_index "users", ["email"], :name => "email", :unique => true
 
 end
