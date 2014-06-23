@@ -16,9 +16,3 @@ group :assets do
   gem 'sass-rails'
   gem 'uglifier'
 end
-
-# Gems used only for development and not required
-# in production environments by default.
-group :development do
-  gem 'thin'
-end
