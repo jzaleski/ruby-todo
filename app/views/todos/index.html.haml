@@ -1,20 +1,20 @@
 .notepad
-	.binding
-		='TODO'
-		%a{:class => 'prev', :href => todos_path(:list_id => prev_list.try(:id)), :style => "visibility: #{prev_list ? 'visible' : 'hidden'};"}='<'
-		%a{:class => 'next', :href => todos_path(:list_id => next_list.try(:id)), :style => "visibility: #{next_list ? 'visible' : 'hidden'};"}='>'
-	%table.lines{:cellpadding => '0', :cellspacing => '0'}
-		%tr
-			%td
-			%td
-			%td=text_field :list, :name, {:readonly => true, :value => @list.name}
-		- @todos.each do |todo|
-			=form_for todo do |form|
-				%tr
-					%td=check_box 'todo', 'completed', {:disabled => todo.new_record? || todo.completed_at, :onchange => 'this.form.submit();'}
-					%td
-					%td=form.text_field :summary, {:autocomplete => 'off', :readonly => todo.completed_at}
-	.status
-		=link_to 'Active', todos_path(:view => 'active'), :class => @view_completed ? '' : 'selected'
-		|
-		=link_to 'Completed', todos_path(:view => 'completed'), :class => @view_completed ? 'selected' : ''
+  .binding
+    ='TODO'
+    %a{:class => 'previous', :href => todos_path(:list_id => previous_list.try(:id)), :style => "visibility: #{previous_list ? 'visible' : 'hidden'};"}='<'
+    %a{:class => 'next', :href => todos_path(:list_id => next_list.try(:id)), :style => "visibility: #{next_list ? 'visible' : 'hidden'};"}='>'
+  %table.lines{:cellpadding => '0', :cellspacing => '0'}
+    %tr
+      %td
+      %td
+      %td=text_field :list, :name, {:readonly => true, :value => @list.name}
+    - @todos.each do |todo|
+      =form_for todo do |form|
+        %tr
+          %td=check_box 'todo', 'completed', {:disabled => todo.new_record? || todo.completed_at, :onchange => 'this.form.submit();'}
+          %td
+          %td=form.text_field :summary, {:autocomplete => 'off', :readonly => todo.completed_at}
+  .status
+    =link_to 'Active', todos_path(:view => 'active'), :class => @view_completed ? '' : 'selected'
+    |
+    =link_to 'Completed', todos_path(:view => 'completed'), :class => @view_completed ? 'selected' : ''

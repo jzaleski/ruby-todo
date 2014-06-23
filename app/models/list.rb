@@ -8,4 +8,8 @@ class List < ActiveRecord::Base
 
 	attr_accessible :created_by_user, :name
 
+  def is_default?
+    name == "#{created_by_user.email}'s list"
+  end
+
 end

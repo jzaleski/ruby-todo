@@ -1,6 +1,12 @@
 module TodosHelper
 
-	def prev_list
+  def current_list
+    if @user && @list
+      @list
+    end
+  end
+
+	def previous_list
 		if @user && @list
 			index = list_index - 1
 			index < 0 ? nil : @user.lists[index]
@@ -14,7 +20,6 @@ module TodosHelper
 			index < 0 ? nil : @user.lists[index]
 		end
 	end
-
 
 	private
 
