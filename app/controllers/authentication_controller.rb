@@ -8,9 +8,10 @@ class AuthenticationController < ApplicationController
       )
 			if user.present?
 				session[:user_id] = user.id
-				return redirect_to todos_path
+				redirect_to todos_path
+      else
+			  flash[:error] = 'Invalid email and/or password'
 			end
-			flash[:error] = 'Invalid email and/or password'
 		end
 	end
 
