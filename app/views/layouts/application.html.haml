@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 %html
-	%head
-		%title=Todo
-		=stylesheet_link_tag 'application', :media => 'all'
-		=controller_stylesheet_link_tag
-		=javascript_include_tag 'application'
-		=controller_javascript_include_tag
-		=csrf_meta_tags
-		%link{:rel => 'apple-touch-icon', :href => 'favicon.ico'}
-		%meta{:name => 'apple-mobile-web-app-capable', :content => 'yes'}
-		%meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'}
-	%body
-		#content=yield
+  %head
+    %title=Todo
+    =stylesheet_link_tag 'application', :media => 'all'
+    =javascript_include_tag 'application'
+    =csrf_meta_tags
+    %link{:rel => 'apple-touch-icon', :href => 'favicon.ico'}
+    %meta{:name => 'apple-mobile-web-app-capable', :content => 'yes'}
+    %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'}
+  %body
+    #content=yield

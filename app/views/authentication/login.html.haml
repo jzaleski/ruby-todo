@@ -1,4 +1,6 @@
 .form_wrapper
+  =javascript_include_tag 'authentication'
+  =stylesheet_link_tag 'authentication'
 	-if flash[:error]
 		.error=flash[:error]
 	=form_tag '/login' do

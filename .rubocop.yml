@@ -1,0 +1,44 @@
+inherit_from: .rubocop_todo.yml
+
+require: 'rubocop-rspec'
+
+Rails:
+  Enabled: true
+
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+
+Layout/DotPosition:
+  Enabled: false
+
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: false
+
+Layout/SpaceInLambdaLiteral:
+  EnforcedStyle: require_space
+
+Metrics/BlockLength:
+  Exclude:
+    - 'lib/tasks/*.rake'
+    - 'test/**/*'
+
+Metrics/LineLength:
+  Max: 100
+
+Style/Documentation:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Style/NegatedIf:
+  Enabled: false
+
+Style/RegexpLiteral:
+  AllowInnerSlashes: true
+
+Style/SymbolArray:
+  EnforcedStyle: brackets

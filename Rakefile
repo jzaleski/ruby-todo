@@ -1,7 +1,9 @@
-#!/usr/bin/env rake
-# Add your own tasks in files placed in lib/tasks ending in .rake,
-# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
+# Load the Rails environment (it will automatically load the `application`)
+require_relative 'config/environment'
 
-require File.expand_path('../config/application', __FILE__)
+# Silence SQL logging by default, but provide an easy means through an
+# environment variable to re-enable it if so desired
+ActiveRecord::Base.logger = nil unless ENV['VERBOSE']
 
-TodoApp::Application.load_tasks
+# Load the Rails application `Task(s)`
+Rails.application.load_tasks
