@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_and_belongs_to_many :lists
+  has_and_belongs_to_many :lists, -> { order('created_at') }
 
   validates :email, :format => { :with => /\A.+@.+\..+\Z/ }
   validates :email, :uniqueness => true
