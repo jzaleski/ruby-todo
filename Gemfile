@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.7.6'
+ruby '3.1.1'
 
 gem 'puma', '~> 6.2.0'
 
