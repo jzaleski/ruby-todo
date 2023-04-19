@@ -1,15 +1,13 @@
+=javascript_include_tag 'todos'
+=stylesheet_link_tag 'todos'
+
 .notepad
   .binding
-    ='TODO'
-    =javascript_include_tag 'todos'
-    =stylesheet_link_tag 'todos'
+    .list_header='TODO'
+    .list_name=@list.try(:name)
     %a{:class => 'previous', :href => todos_path(:list_id => previous_list.try(:id)), :style => "visibility: #{previous_list ? 'visible' : 'hidden'};"}='<'
     %a{:class => 'next', :href => todos_path(:list_id => next_list.try(:id)), :style => "visibility: #{next_list ? 'visible' : 'hidden'};"}='>'
   %table.lines{:cellpadding => '0', :cellspacing => '0'}
-    %tr
-      %td
-      %td
-      %td=text_field :list, :name, {:readonly => true, :value => @list.name}
     -@todos.each_with_index do |todo, index|
       %tr
         %td=form_for(todo, :html => {:class => 'update', :id => "update_#{index + 1}"}) {check_box 'todo', 'completed', {:disabled => todo.new_record? || todo.completed_at}}

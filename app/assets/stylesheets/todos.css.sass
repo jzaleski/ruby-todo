@@ -1,6 +1,6 @@
 #content
-  overflow-x: hidden
   max-width: 1024px
+  overflow-x: hidden
   .notepad
     margin: 0px 10px
     padding-top: 5px
@@ -9,18 +9,29 @@
       border-color: #777
       border-style: solid
       border-width: 1px 1px 0 1px
-      color: #FFF
-      font-size: 20px
-      font-weight: bold
-      padding: 7px 0
+      padding: 5px 0
       text-align: center
       .previous, .next
         color: #B3B3B3
         cursor: pointer
+        font-size: 16px
+        font-weight: bold
+        position: relative
+        height: 0
+        top: -26px
       .previous
+        clear: left
         float: left
         padding-left: 10px
+      .list_header
+        color: #FFF
+        font-size: 20px
+      .list_name
+        color: #CCC
+        font-size: 12px
+        margin-top: 4px
       .next
+        clear: right
         float: right
         padding-right: 10px
     .lines
@@ -47,10 +58,6 @@
             border: none
             outline: none
             width: 100%
-          #list_name
-            cursor: default
-            font-style: italic
-            font-weight: bold
     .status
       background-color: #EEE
       border: solid 1px #999
