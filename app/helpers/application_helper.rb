@@ -5,7 +5,7 @@ module ApplicationHelper
     list_id = params.delete(:list_id) if params[:list_id]
     list_id ||= session[:list_id]
     @list = List.find(list_id) if list_id
-    @list ||= List.find_or_initialize_by(name: "#{user.email}'s list")
+    @list = user.lists.empty? ? List.new(name: "#{user.email}'s list") : user.lists.first
     if @list.new_record?
       @list.created_by_user = user
       @list.users << user

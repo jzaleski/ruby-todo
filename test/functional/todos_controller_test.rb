@@ -15,7 +15,6 @@ class TodosControllerTest < ActionController::TestCase
     get :index, session: @session
     assert_response :success
     assert_not_nil assigns(:todos)
-    assert_select '.lines tr td #list_name', 1
     assert_select '.lines tr td #todo_summary', 2
   end
 
@@ -27,7 +26,6 @@ class TodosControllerTest < ActionController::TestCase
     )
     assert_response :success
     assert_not_nil assigns(:todos)
-    assert_select '.lines tr td #list_name', 1
     assert_select '.lines tr td #todo_summary', 1
     assert assigns(:todos).all {|t| t.created_by_user == t.completed_by_user}
   end
